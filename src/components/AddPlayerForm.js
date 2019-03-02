@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 export class AddPlayerForm extends React.Component {
 
+  textInput = React.createRef();
+
   constructor(props)
   {
     super(props);
@@ -25,7 +27,8 @@ export class AddPlayerForm extends React.Component {
     e.preventDefault();
 
     //부모 이벤트 호출
-    this.props.addPlayer ( this.state.playerName );
+    //this.props.addPlayer ( this.state.playerName );
+    this.props.addPlayer ( this.textInput.current.value );
 
     //폼 초기화
     this.setState( { playerName: ''  });
@@ -38,7 +41,11 @@ export class AddPlayerForm extends React.Component {
     return (
 
       <form onSubmit={this.handleSumit}>
-        <input type="text" placeholder="enter" value={this.state.playerName} onChange={ this.handleValueChange } />
+        <input type="text" placeholder="enter"
+               // value={this.state.playerName}
+               // onChange={ this.handleValueChange }
+          ref={this.textInput}
+        />
         <input type="submit" value="Add Player" />
 
       </form>

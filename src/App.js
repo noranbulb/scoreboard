@@ -39,7 +39,7 @@ class App extends React.Component {
 
 
   handleChangeSocre = (index, delta) => {
-    console.log(index, delta);
+    //console.log(index, delta);
     const players = this.state.players.map((player, idx) => {
       if (idx === index) {
         player.score = player.score + delta;
