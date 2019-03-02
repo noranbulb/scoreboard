@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {Header} from "./components/Header";
 import {Player} from "./components/Player";
+import {AddPlayerForm} from "./components/AddPlayerForm";
 
 // 선택 범위 : control-w
 /*const header = (
@@ -35,6 +36,8 @@ class App extends React.Component {
 
   };
 
+
+
   handleChangeSocre = (index, delta) => {
     console.log(index, delta);
     const players = this.state.players.map((player, idx) => {
@@ -47,6 +50,25 @@ class App extends React.Component {
     });
 
     this.setState({players});
+  };
+
+  handleAddPlayer = (name) => {
+    this.setState( prevState => {
+
+      //가장 큰 player id를 구한다.
+      let maxId = 0;
+
+      this.state.players.forEach( item => item.id > maxId ? maxId = item.id : maxId = maxId );
+
+      return {
+        players: [
+          //...prevState.players, {id: maxId + 1 , name: name , score: 0}
+          ...prevState.players, {id: maxId + 1 , name , score: 0} //키와 벨류가 같으면 하나로 생략
+        ]
+      }
+
+    })
+
   };
 
   render() {
@@ -63,6 +85,9 @@ class App extends React.Component {
             key={play.id} removePlayer={this.handleRemovePlayer}
             changeScore={this.handleChangeSocre} />)
         }
+
+        <AddPlayerForm addPlayer={this.handleAddPlayer}/>
+
       </div>
     )
   }
