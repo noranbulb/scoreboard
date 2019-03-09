@@ -1,8 +1,10 @@
 import React from 'react';
-import {Counter} from "./Counter";
+import Counter from "./Counter";
+import {connect} from "react-redux";
+import {removePlayer} from "../redux/actions";
 
 
-export class Player extends React.Component {
+class Player extends React.Component {
   render() {
 
     console.log(this.props.name, 'rendered');
@@ -15,7 +17,8 @@ export class Player extends React.Component {
           <button className="remove-player" onClick={() => removePlayer(id)}>X</button>
         </span>
         <span className="player-name">{name}</span>
-        <Counter {...this.props} />
+        {/*<Counter {...this.props} />*/}
+        <Counter score={score} index={id}/>
       </div>
     );
   }
@@ -31,5 +34,6 @@ export class Player extends React.Component {
   }
   */
 
-
 };
+
+export default connect(null, { removePlayer })(Player);

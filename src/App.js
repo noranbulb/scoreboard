@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import {Header} from "./components/Header";
-import {Player} from "./components/Player";
-import {AddPlayerForm} from "./components/AddPlayerForm";
+import Header from "./components/Header";
+import Player from "./components/Player";
+import AddPlayerForm from "./components/AddPlayerForm";
+import {connect} from "react-redux";
 
 // 선택 범위 : control-w
 /*const header = (
@@ -13,32 +14,28 @@ import {AddPlayerForm} from "./components/AddPlayerForm";
 );*/
 
 class App extends React.Component {
-  state = {
+  /*state = {
     players: [
       {name: 'LDK', score: 0, id: 1},
       {name: 'HONG', score: 0, id: 2},
       {name: 'KIM', score: 0, id: 3},
       {name: 'PARK', score: 0, id: 4},
     ]
-  };
+  };*/
 
-  handleRemovePlayer = (id) => {
-
+  /*handleRemovePlayer = (id) => {
     this.setState(prevState => ({
 
       players: prevState.players.filter( ( player , key)  => {
         console.log( key , player.id !== id);
         return player.id !== id;
-
       })
     }));
-
-
-  };
+  };*/
 
 
 
-  handleChangeSocre = (index, delta) => {
+  /*handleChangeSocre = (index, delta) => {
     //console.log(index, delta);
     const players = this.state.players.map((player, idx) => {
       if (idx === index) {
@@ -50,9 +47,9 @@ class App extends React.Component {
     });
 
     this.setState({players});
-  };
+  };*/
 
-  handleAddPlayer = (name) => {
+  /*handleAddPlayer = (name) => {
     this.setState( prevState => {
 
       //가장 큰 player id를 구한다.
@@ -69,28 +66,36 @@ class App extends React.Component {
 
     })
 
-  };
+  };*/
 
   render() {
     return (
       <div className="scoreboard">
-        <Header title="My scoreboard" players={this.state.players} />
+        <Header players={this.props.players} />
 
         {
-          this.state.players.map((play, index) => <Player
+          this.props.players.map((play, index) => <Player
             id={play.id}
             name={play.name}
             index={index}
             score={play.score}
-            key={play.id} removePlayer={this.handleRemovePlayer}
-            changeScore={this.handleChangeSocre} />)
+            key={play.id}
+            //removePlayer={this.handleRemovePlayer}
+            //changeScore={this.handleChangeSocre}
+          />)
         }
 
-        <AddPlayerForm addPlayer={this.handleAddPlayer}/>
+        {/*<AddPlayerForm addPlayer={this.handleAddPlayer}/>*/}
+        <AddPlayerForm />
 
       </div>
     )
   }
 }
 
-export default App;
+let mapStateToProps = (state) => ({
+  players: state.playerRecucer.players
+
+})
+
+export default connect(mapStateToProps)(App);
