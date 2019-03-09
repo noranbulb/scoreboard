@@ -38,7 +38,7 @@ promise.then(value => {
   console.log(value)
 });*/
 
-
+//3번째 잘된 예
 new Promise(resolve => {
   setTimeout(()=>{
     console.log('async 1');
