@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
 export class Home extends React.Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props);
-  }
+  }*/
 
   render() {
     return (
