@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import propsTypes from'prop-types';
+import propsTypes from 'prop-types';
 import {connect} from "react-redux";
 import {changeScore} from "../redux/actions";
 import classNames from 'classnames';
@@ -20,7 +20,7 @@ class Counter extends Component {
 
     const {changeScore , index, score} = this.props;
 
-    let button1 = styles["counter-action"] + ' ' + styles.decrement;
+    //let button1 = styles["counter-action"] + ' ' + styles.decrement;
 
     return (
       <div className={styles.counter}>

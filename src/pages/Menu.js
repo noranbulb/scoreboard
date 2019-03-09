@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {
-  Collapse, DropdownItem, DropdownMenu, DropdownToggle,
-
+  Collapse,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
   Nav,
   Navbar,
-  NavbarBrand,
   NavbarToggler,
   NavItem,
-  //NavLink,
   UncontrolledDropdown
 } from "reactstrap";
 import {NavLink} from "react-router-dom";
