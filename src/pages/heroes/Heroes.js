@@ -13,24 +13,19 @@ export class Heroes extends React.Component {
 
   render() {
     return (
-      <ul className={style["img-box"]}>
-        {
-          this.state.heroes.map( hero => {
-            return (
-              <li key={hero.hero_id} className="row align-items-center m-0">
-                <div className="col-1 py-2">
-                  <img src={hero.photo ? hero.photo : process.env.PUBLIC_URL + '/images/baseline-face-24px.svg' }
-                       alt={hero.name}
-                       className="img-fluid rounded-circle" />
-
-                </div>
-                <span className="col">{hero.name}</span>
-              </li>
-            )
-
-          })
-        }
-      </ul>
+      <div className="card-columns">
+        {this.state.heroes.map(hero => (
+          <div className="card" key={hero.hero_id}>
+            <img src={hero.photo ? hero.photo : process.env.PUBLIC_URL + '/images/baseline-face-24px.svg'}
+                 style={{width: '100%'}} alt={hero.name}></img>
+            <div className="card-body">
+              <h5 className="card-title">{hero.name}</h5>
+              <p className="card-text">email: {hero.email}</p>
+              <p className="card-text">sex: {hero.sex}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
     )
   }
