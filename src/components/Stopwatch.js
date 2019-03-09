@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import classNames from 'classnames';
+import styles from '../pages/scoreboard/Scoreboard.module.css';
+
 export class Stopwatch extends React.Component {
 
   constructor(props) {
@@ -64,7 +67,7 @@ export class Stopwatch extends React.Component {
 
   render() {
     return (
-      <div className="stopwatch">
+      <div className={styles.stopwatch}>
         <h2>Stopwatch</h2>
         <span className="stopwatch-time">  {this.state.timer}   </span>
         <button onClick={this.handleStopwatch} > {this.state.isRunning ? 'Stop':'Start'} </button>

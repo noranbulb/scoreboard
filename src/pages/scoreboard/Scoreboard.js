@@ -4,7 +4,9 @@ import React from 'react';
 // import Player from "./components/Player";
 // import AddPlayerForm from "./components/AddPlayerForm";
 
-import './Scoreboard.css';
+import style from './Scoreboard.module.css';
+
+
 import {connect} from "react-redux";
 import Header from "../../components/Header";
 import Player from "../../components/Player";
@@ -75,7 +77,7 @@ class Scoreboard extends React.Component {
 
   render() {
     return (
-      <div className="scoreboard">
+      <div className={style.scoreboard}>
         <Header players={this.props.players} />
 
         {

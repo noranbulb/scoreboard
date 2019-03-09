@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import * as axios from "axios";
-import './Heroes.module.scss';
+import style from './Heroes.module.scss';
 
 export class Heroes extends React.Component {
   /*constructor(props) {
@@ -13,7 +13,7 @@ export class Heroes extends React.Component {
 
   render() {
     return (
-      <ul className="img-box">
+      <ul className={style["img-box"]}>
         {
           this.state.heroes.map( hero => {
             return (
