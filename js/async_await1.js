@@ -22,6 +22,8 @@ async function add1(x) {
 
 }
 
+
+
 console.log( add1(10).then( (value => console.log('add1 :' , value )))  );
 
 console.log('end');
